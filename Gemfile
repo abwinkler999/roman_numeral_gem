@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-require 'rake'
-require 'rspec'
+gem "rspec"
+gem "rake"
