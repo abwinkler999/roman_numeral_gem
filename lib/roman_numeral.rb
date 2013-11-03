@@ -1,6 +1,42 @@
 class RomanNumeral
+
+	def initialize(prospective_numeral)
+		@numeral = prospective_numeral
+	end
+
+	def pure_digit(digit)
+		case digit
+		when "I"
+			return 1
+		when "V"
+			return 5
+		when "X"
+			return 10
+		when "L"
+			return 50
+		when "C"
+			return 100
+		when "D"
+			return 500
+		when "M"
+			return 1000
+		else
+			return nil
+		end
+	end
+
 	def pre_and_post_parser(numeral, lxv)
-		
+		if numeral.partition(lxv)[0].include? "I"
+			return pure_digit(lxv) - 1
+		elsif numeral.partition(lxv)[2].include? "III"
+			return pure_digit(lxv) + 3
+		elsif numeral.partition(lxv)[2].include? "II"
+			return pure_digit(lxv) + 2
+		elsif numeral.partition(lxv)[2].include? "I"
+			return pure_digit(lxv) + 1
+		else
+			return pure_digit(lxv)
+		end
 	end
 
 	def r_to_i(numeral)
@@ -18,24 +54,18 @@ class RomanNumeral
 		end
 
 		if numeral.include? "L"
-			return 50
+			return pre_and_post_parser(numeral, "L")
 		end
 
 		if numeral.include? "X"
-			return 10
+			return pre_and_post_parser(numeral, "X")
 		end
 
 		if numeral.include? "V"
-			#if numeral.partition("V")
-			if numeral.include? "IV"
-				return 4
-			elsif numeral.include? "VI"
-				return 6
-			else
-				return 5
-			end
-		else
-			return numeral.length
+			return pre_and_post_parser(numeral, "V")
 		end
+
+	else return numeral.length
+
 	end
 end

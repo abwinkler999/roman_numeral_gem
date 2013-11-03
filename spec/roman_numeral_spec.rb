@@ -32,11 +32,41 @@ describe RomanNumeral do
 		subject.r_to_i("V").should == 5
 	end
 
+	it "can parse VI into 6" do
+		subject.r_to_i("VI").should == 6
+	end
+
+	it "can parse VII into 7" do
+		subject.r_to_i("VII").should == 7
+	end
+
+	it "can parse VI into 8" do
+		subject.r_to_i("VIII").should == 8
+	end
+
 	it "can parse X into 10" do
 		subject.r_to_i("X").should == 10
 	end
 
+	it "can parse IX into 9" do
+		subject.r_to_i("IX").should == 9
+	end
+
+	it "can parse XIII into 13" do
+		subject.r_to_i("XIII").should == 13
+	end
+
+
 	it "can parse L into 50" do
 		subject.r_to_i("L").should == 50
 	end
+
+	it "can parse LII into 52" do
+		subject.r_to_i("LII").should == 52
+	end
+
+	it "can parse XIV into 14" do
+		subject.r_to_i("XIV").should == 14
+	end
+
 end
