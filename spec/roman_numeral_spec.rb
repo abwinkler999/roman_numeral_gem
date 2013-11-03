@@ -13,7 +13,7 @@ describe RomanNumeral do
 
 	it "can clean up poorly formatted arguments" do
 		subject.r_to_i("i").should == 1
-		subject.r_to_i(" i \n").should == 1
+		subject.r_to_i(" i ").should == 1
 	end
 
 	it "can parse II into 2" do

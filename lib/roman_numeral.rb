@@ -9,8 +9,13 @@ class RomanNumeral
 			return nil
 		end
 
+		# can't concatenate methods, because both strip! and upcase! return nil if no changes made
 		numeral.strip!
 		numeral.upcase!
+
+		if numeral.gsub(/[MCDLXVI]/, "*") == numeral
+			return nil
+		end
 
 		if numeral.include? "L"
 			return 50
