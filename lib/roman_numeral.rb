@@ -35,7 +35,34 @@ class RomanNumeral
 		end
 	end
 
-	def r_to_i(prospective)
+	def r_to_i(numeral)
+
+		if numeral.empty?
+			return nil
+		end
+
+		numeral.strip!
+		numeral.upcase!
+		numeral = numeral[/[MCDLXVI]/]
+
+		if numeral.nil?
+			return nil
+		end
+=begin
+		if numeral.gsub(/[MCDLXVI]/, "*") == numeral
+			return nil
+		end
+
+		if numeral.include?(/[^MDCLXVI]/)
+			return nil
+		end
+=end
+		until numeral.length == 0  do
+			
+		end
+	end
+
+	def r_to_i_old(prospective)
 
 		@numeral = prospective
 

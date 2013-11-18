@@ -5,6 +5,7 @@ describe RomanNumeral do
 	it "refuses to parse strings that are not Roman numerals" do
 		subject.r_to_i("").should == nil
 		subject.r_to_i("FOO").should == nil
+		subject.r_to_i("XVIIQ").should == nil
 	end
 
 	it "can parse I into 1" do
