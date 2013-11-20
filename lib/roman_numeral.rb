@@ -18,8 +18,11 @@ class RomanNumeral
     until numeral.length == 0 do
       value += 900 unless (numeral.sub! "CM", "").nil?
       value += 1000 unless (numeral.sub! "M", "").nil?
+      value += 400 unless (numeral.sub! "CD", "").nil?
       value += 500 unless (numeral.sub! "D", "").nil?
+      value += 90 unless (numeral.sub! "XC", "").nil?
       value += 100 unless (numeral.sub! "C", "").nil?
+      value += 40 unless (numeral.sub! "XL", "").nil?
       value += 50 unless (numeral.sub! "L", "").nil?
       value += 9 unless (numeral.sub! "IX", "").nil?
       value += 10 unless (numeral.sub! "X", "").nil?

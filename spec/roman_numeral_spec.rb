@@ -77,4 +77,20 @@ describe RomanNumeral do
     subject.r_to_i("MCMLXXXVIII").should == 1988
   end
 
+  it "can parse XL into 40" do
+    subject.r_to_i("XL").should == 40
+  end
+
+  it "can parse XC into 90" do
+    subject.r_to_i("XC").should == 90
+  end
+
+  it "can parse CD into 400" do
+    subject.r_to_i("CD").should == 400
+  end
+
+  it "can parse CM into 900" do
+    subject.r_to_i("CM").should == 900
+  end
+
 end
