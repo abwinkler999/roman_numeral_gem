@@ -1,99 +1,32 @@
 class RomanNumeral
 
-	def pure_digit(digit)
-		case digit
-		when "I"
-			return 1
-		when "V"
-			return 5
-		when "X"
-			return 10
-		when "L"
-			return 50
-		when "C"
-			return 100
-		when "D"
-			return 500
-		when "M"
-			return 1000
-		else
-			return nil
-		end
-	end
+  def r_to_i(numeral)
 
-  while false do end
+    value = 0
+    
+    if numeral.empty?
+      return nil
+    end
 
+    numeral.strip!
+    numeral.upcase!
 
-	def pre_and_post_parser(letter)
-		if @numeral.partition(letter)[0].include? "I"
-			return pure_digit(letter) - 1
-		elsif @numeral.partition(letter)[2].include? "III"
-			return pure_digit(letter) + 3
-		elsif @numeral.partition(letter)[2].include? "II"
-			return pure_digit(letter) + 2
-		elsif @numeral.partition(letter)[2].include? "I"
-			return pure_digit(letter) + 1
-		else
-			return pure_digit(letter)
-		end
-	end
+    if (numeral != numeral[/[MCDLXVI]*/])
+      return nil
+    end
 
-	def r_to_i(numeral)
-
-		if numeral.empty?
-			return nil
-		end
-
-		numeral.strip!
-		numeral.upcase!
-		numeral = numeral[/[MCDLXVI]/]
-
-		if numeral.nil?
-			return nil
-		end
-=begin
-		if numeral.gsub(/[MCDLXVI]/, "*") == numeral
-			return nil
-		end
-
-		if numeral.include?(/[^MDCLXVI]/)
-			return nil
-		end
-=end
-		until numeral.length == 0  do
-			
-		end
-	end
-
-	def r_to_i_old(prospective)
-
-		@numeral = prospective
-
-		if @numeral.empty?
-			return nil
-		end
-
-		# can't concatenate methods, because both strip! and upcase! return nil if no changes made
-		@numeral.strip!
-		@numeral.upcase!
-
-		if @numeral.gsub(/[MCDLXVI]/, "*") == @numeral
-			return nil
-		end
-
-		if @numeral.include? "L"
-			return pre_and_post_parser("L")
-		end
-
-		if @numeral.include? "X"
-			return pre_and_post_parser("X")
-		end
-
-		if @numeral.include? "V"
-			return pre_and_post_parser("V")
-		end
-
-	else return @numeral.length
-
-	end
+    until numeral.length == 0 do
+      value += 900 unless (numeral.sub! "CM", "").nil?
+      value += 1000 unless (numeral.sub! "M", "").nil?
+      value += 500 unless (numeral.sub! "D", "").nil?
+      value += 100 unless (numeral.sub! "C", "").nil?
+      value += 50 unless (numeral.sub! "L", "").nil?
+      value += 9 unless (numeral.sub! "IX", "").nil?
+      value += 10 unless (numeral.sub! "X", "").nil?
+      value += 4 unless (numeral.sub! "IV", "").nil?
+      value += 5 unless (numeral.sub! "V", "").nil?
+      value += 1 unless (numeral.sub! "I", "").nil?
+    end
+    value
+  end
 end
