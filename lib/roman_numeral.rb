@@ -21,6 +21,7 @@ class RomanNumeral
 		end
 	end
 
+
 	def pre_and_post_parser(letter)
 		if @numeral.partition(letter)[0].include? "I"
 			return pure_digit(letter) - 1
