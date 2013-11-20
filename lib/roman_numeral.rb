@@ -3,7 +3,7 @@ class RomanNumeral
   def r_to_i(numeral)
 
     value = 0
-    
+
     if numeral.empty?
       return nil
     end

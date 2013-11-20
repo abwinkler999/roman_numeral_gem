@@ -57,7 +57,6 @@ describe RomanNumeral do
     subject.r_to_i("XIII").should == 13
   end
 
-
   it "can parse L into 50" do
     subject.r_to_i("L").should == 50
   end
@@ -73,8 +72,9 @@ describe RomanNumeral do
   it "can parse DCLXVI into 666" do
     subject.r_to_i("DCLXVI").should == 666
   end
-  
+
   it "can parse MCMLXXXVIII into 1988" do
     subject.r_to_i("MCMLXXXVIII").should == 1988
   end
+
 end
