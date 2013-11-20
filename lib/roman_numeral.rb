@@ -21,6 +21,8 @@ class RomanNumeral
 		end
 	end
 
+  while false do end
+
 
 	def pre_and_post_parser(letter)
 		if @numeral.partition(letter)[0].include? "I"
