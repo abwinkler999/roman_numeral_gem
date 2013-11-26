@@ -3,94 +3,94 @@ require 'roman_numeral'
 describe RomanNumeral do
 
   it "refuses to parse strings that are not Roman numerals" do
-    subject.r_to_i("").should == nil
-    subject.r_to_i("FOO").should == nil
-    subject.r_to_i("XVIIQ").should == nil
+    "".r_to_i.should == nil
+    "FOO".r_to_i.should == nil
+    "XXVIIQ".r_to_i.should == nil
   end
 
   it "can parse I into 1" do
-    subject.r_to_i("I").should == 1
+    "I".r_to_i.should == 1
   end
 
   it "can clean up poorly formatted arguments" do
-    subject.r_to_i("i").should == 1
-    subject.r_to_i(" i ").should == 1
+    "i".r_to_i.should == 1
+    " i ".r_to_i.should == 1
   end
 
   it "can parse II into 2" do
-    subject.r_to_i("II").should == 2
+    "II".r_to_i.should == 2
   end
 
   it "can parse III into 3" do
-    subject.r_to_i("III").should == 3
+    "III".r_to_i.should == 3
   end
 
   it "can parse IV into 4" do
-    subject.r_to_i("IV").should == 4
+    "IV".r_to_i.should == 4
   end
 
   it "can parse V into 5" do
-    subject.r_to_i("V").should == 5
+    "V".r_to_i.should == 5
   end
 
   it "can parse VI into 6" do
-    subject.r_to_i("VI").should == 6
+    "VI".r_to_i.should == 6
   end
 
   it "can parse VII into 7" do
-    subject.r_to_i("VII").should == 7
+    "VII".r_to_i.should == 7
   end
 
   it "can parse VI into 8" do
-    subject.r_to_i("VIII").should == 8
+    "VIII".r_to_i.should == 8
   end
 
   it "can parse X into 10" do
-    subject.r_to_i("X").should == 10
+    "X".r_to_i.should == 10
   end
 
   it "can parse IX into 9" do
-    subject.r_to_i("IX").should == 9
+    "IX".r_to_i.should == 9
   end
 
   it "can parse XIII into 13" do
-    subject.r_to_i("XIII").should == 13
+    "XIII".r_to_i.should == 13
   end
 
   it "can parse L into 50" do
-    subject.r_to_i("L").should == 50
+    "L".r_to_i.should == 50
   end
 
   it "can parse LII into 52" do
-    subject.r_to_i("LII").should == 52
+    "LII".r_to_i.should == 52
   end
 
   it "can parse XIV into 14" do
-    subject.r_to_i("XIV").should == 14
+    "XIV".r_to_i.should == 14
   end
 
   it "can parse DCLXVI into 666" do
-    subject.r_to_i("DCLXVI").should == 666
+    "DCLXVI".r_to_i.should == 666
   end
 
   it "can parse MCMLXXXVIII into 1988" do
-    subject.r_to_i("MCMLXXXVIII").should == 1988
+    "MCMLXXXVIII".r_to_i.should == 1988
   end
 
   it "can parse XL into 40" do
-    subject.r_to_i("XL").should == 40
+    "XL".r_to_i.should == 40
   end
 
   it "can parse XC into 90" do
-    subject.r_to_i("XC").should == 90
+    "XC".r_to_i.should == 90
   end
 
   it "can parse CD into 400" do
-    subject.r_to_i("CD").should == 400
+    "CD".r_to_i.should == 400
   end
 
   it "can parse CM into 900" do
-    subject.r_to_i("CM").should == 900
+    "CM".r_to_i.should == 900
   end
 
 end

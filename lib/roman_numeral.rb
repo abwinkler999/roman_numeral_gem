@@ -1,7 +1,8 @@
-class RomanNumeral
+module RomanNumeral
 
-  def r_to_i(numeral)
+  def r_to_i()
 
+    numeral = self
     value = 0
 
     if numeral.empty?
@@ -32,4 +33,8 @@ class RomanNumeral
     end
     value
   end
+end
+
+class String
+  include RomanNumeral
 end
