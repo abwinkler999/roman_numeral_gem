@@ -1,6 +1,6 @@
-require 'roman_numeral'
+require 'roman_numeral_gem'
 
-describe RomanNumeral do
+describe RomanNumeralGem do
 
   it "refuses to parse strings that are not Roman numerals" do
     "".r_to_i.should == nil
